@@ -1,0 +1,21 @@
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<div class="card mb-1 list-group-item title-background-decoration">
+  <button
+    class="btn btn-primary mt-lg-1 button-position button-style"
+    (click)="showCategoryMoviesPage()"
+  >View all
+  </button>
+  <h2 class="title">{{category.name}}</h2>
+</div>
+<div class="row">
+  <div class="movie-card-width" *ngFor="let singleMovie of category.movies | slice:0:6">
+    <app-movie-card
+      [movie]="singleMovie"
+    >
+    </app-movie-card>
+  </div>
+</div>
+

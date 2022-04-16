@@ -1,0 +1,22 @@
+
+html, body {
+  overflow-x: hidden;
+  background: radial-gradient(circle, rgba(86,79,88,0.6646008745294993) 6%, rgb(45 46 51) 100%);
+}
+
+.title {
+  font-family: Comic Sans MS, fantasy;
+  color: #010f1b;
+}
+
+.title-background-decoration {
+  background: radial-gradient(circle, rgb(29 26 31 / 83%) 34%, rgb(68 70 82 / 85%) 100%)
+}
+
+.title-background-decoration {
+  background-color: #D3D3D3;
+}
+
+.button-position {
+  float: right;
+}

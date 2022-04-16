@@ -1,0 +1,15 @@
+<div class="container">
+  <p class="search-title">Search movie:</p>
+  <form class="form-control input-lg search-box" #form="ngForm" (ngSubmit)="searchMovie(form)">
+    <div class="input-group custom-input">
+      <input
+        required
+        type="text"
+        class="form-control input"
+        name="movie"
+        placeholder="Movie title"
+        ngModel>
+      <button class="btn button-style" [disabled]="form.invalid">Search</button>
+    </div>
+  </form>
+</div>

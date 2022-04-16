@@ -1,0 +1,11 @@
+<app-search-box></app-search-box>
+
+<div class="list-group">
+  <h1 class="display-5 explore-title">Explore Our Movies</h1>
+</div>
+
+<div *ngFor="let category of allCategories">
+  <app-category
+    [category]="category">
+  </app-category>
+</div>

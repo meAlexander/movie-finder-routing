@@ -1,0 +1,21 @@
+.copyright-area {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #363737;
+  margin-top: auto;
+}
+
+.footer-copyright {
+  font-family: Arial, sans-serif;
+  color: #b1acac;
+  font-size: 16px;
+  margin-bottom: 0;
+  padding: 12px;
+  text-align: center;
+}
+
+.footer-contact {
+  color: cadetblue;
+  text-align: center;
+}
