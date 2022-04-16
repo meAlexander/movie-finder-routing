@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Movie } from '../../shared/models/movie';
 import { Routing } from '../../app-routing.enum';
 import { NavigationService } from '../../services/navigation/navigation.service';
@@ -14,10 +15,11 @@ export class MovieCardComponent implements OnInit {
   public imageUrl: string;
   public loadImage: boolean = true;
 
-  constructor (private navigationService: NavigationService) {
-  }
+  constructor (
+    private navigationService: NavigationService
+  ) { }
 
-  ngOnInit () {
+  ngOnInit (): void {
     this.imageUrl = 'https://image.tmdb.org/t/p/w500/' + this.movie.poster_path;
   }
 

@@ -16,21 +16,21 @@
   </div>
   <div class="custom-container">
     <div class="row">
-      <div class="movie-card-width" *ngFor="let singleMovie of category?.movies">
+      <div class="movie-card-width" *ngFor="let singleMovie of category.movies">
         <app-movie-card
           [movie]="singleMovie"
         >
         </app-movie-card>
       </div>
-      <td class="image-position" *ngIf="!category?.totalResults">
+      <td class="image-position" *ngIf="!category.totalResults">
         <h2 class="title">No records found</h2>
       </td>
     </div>
 
-    <nav *ngIf="category?.totalPages > 1">
+    <nav *ngIf="category.totalPages > 1">
       <ul class="pagination">
         <li class="page-item">
-          <button class="page-link" id="previous" [disabled]="page===1" (click)="showPage(page=page-1)"
+          <button class="page-link" id="previous" [disabled]="true" (click)="showPage(page=page-1)"
           >Previous
           </button>
         </li>
@@ -44,7 +44,7 @@
           <button class="page-link" (click)="showPage(3)">3</button>
         </li>
         <li class="page-item" *ngIf="category.totalPages > 3">
-          <button class="page-link" id="next" [disabled]="page===3" (click)="showPage(page=page+1)"
+          <button class="page-link" id="next" [disabled]="true" (click)="showPage(page=page+1)"
           >Next
           </button>
         </li>

@@ -5,8 +5,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class NavigationService {
-
-  constructor (private router: Router) { }
+  constructor (
+    private router: Router
+  ) { }
 
   public navigate (path: string[], queryParams: Params | null = null, relativeTo: ActivatedRoute | null = null): void  {
     this.router.navigate(path, { queryParams, relativeTo });

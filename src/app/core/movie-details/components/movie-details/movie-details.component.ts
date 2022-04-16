@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../../../shared/models/movie';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from '../../../../services/navigation/navigation.service';
+import { Routing } from '../../../../app-routing.enum';
 
 @Component({
   selector: 'app-movie-details',
@@ -24,6 +25,6 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   public back (): void {
-    this.navigationService.navigate([this.route.parent.snapshot.url[0].path]);
+    this.navigationService.navigate([Routing.HOME]);
   }
 }

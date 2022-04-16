@@ -8,7 +8,9 @@ import { Category } from '../../../shared/models/category';
   providedIn: 'root'
 })
 export class HomePageResolver implements Resolve<Category[]> {
-  constructor (private movieService: MovieService) {}
+  constructor (
+    private movieService: MovieService
+  ) { }
 
   resolve (): Observable<Category[]> {
     let categories: Category[];

@@ -1,9 +1,9 @@
 import { Movie } from './movie';
-import { CODE } from './code';
+import { Code } from './code';
 
 export class Category {
   name: string;
-  code: CODE;
+  code: Code;
   movies: Movie[];
   totalPages: number;
   totalResults: number;

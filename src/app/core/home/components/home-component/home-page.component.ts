@@ -10,14 +10,14 @@ import { MovieService } from '../../../../services/movie/movie.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  public allCategories: Category[] = [];
+  public allCategories: Category[];
 
   constructor (
     private router: ActivatedRoute,
     private movieService: MovieService
-  ) {}
+  ) { }
 
-  ngOnInit () {
+  ngOnInit (): void {
     this.allCategories = this.router.snapshot.data['categories'];
     this.movieService.setCategoriesSubject(this.allCategories);
   }

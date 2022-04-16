@@ -1,4 +1,4 @@
-export enum CODE {
+export enum Code {
   POPULAR_MOVIES = 'POPULAR_MOVIES',
   THEATER_MOVIES = 'THEATER_MOVIES',
   KIDS_MOVIES = 'KIDS_MOVIES',

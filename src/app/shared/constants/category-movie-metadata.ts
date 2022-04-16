@@ -1,8 +1,8 @@
-import { CODE } from '../models/code';
+import { Code } from '../models/code';
 
 export interface CategoryMovieMetadata {
   name: string;
   categoryUrl: string;
-  code: CODE;
+  code: Code;
   searchParam?: string;
 }

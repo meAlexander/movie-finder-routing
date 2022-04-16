@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from './services/navigation/navigation.service';
+
 import { Routing } from './app-routing.enum';
+import { NavigationService } from './services/navigation/navigation.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-
-  constructor (private navigationService: NavigationService) { }
+  constructor (
+    private navigationService: NavigationService
+  ) { }
 
   ngOnInit (): void {
     this.navigationService.navigate([Routing.HOME]);

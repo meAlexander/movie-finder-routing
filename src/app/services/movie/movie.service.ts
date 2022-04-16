@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Observable, of, ReplaySubject } from 'rxjs';
+
+import { Code } from '../../shared/models/code';
 import { Movie } from '../../shared/models/movie';
-import { ResponseAPI } from '../../shared/models/response-api';
 import { Category } from '../../shared/models/category';
-import { CATEGORY_MOVIES_METADATA } from '../../shared/constants/category-movies-metadata.const';
+import { ResponseAPI } from '../../shared/models/response-api';
 import { CategoryMovieMetadata } from '../../shared/constants/category-movie-metadata';
-import { CODE } from '../../shared/models/code';
+import { CATEGORY_MOVIES_METADATA } from '../../shared/constants/category-movies-metadata.const';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class MovieService {
   private _categories$$: ReplaySubject<Category[]> = new ReplaySubject<Category[]>(1);
 
   public readonly categoryConfig: {
-    [key in CODE]: CategoryMovieMetadata;
+    [key in Code]: CategoryMovieMetadata;
   } = CATEGORY_MOVIES_METADATA;
 
   private readonly BASE_URL: string = 'https://api.themoviedb.org/3';
@@ -45,11 +46,6 @@ export class MovieService {
       categoryMovieMetadata.push(categoryMetadata);
     });
     return categoryMovieMetadata;
-  }
-
-  public searchMovie (movieSearch: string): Observable<Category> {
-    this.categoryConfig.SEARCHED_MOVIES.searchParam = movieSearch;
-    return this.getMoviesBaseQuery(this.categoryConfig.SEARCHED_MOVIES);
   }
 
   public getMovieDetails (id: number): Observable<Movie> {

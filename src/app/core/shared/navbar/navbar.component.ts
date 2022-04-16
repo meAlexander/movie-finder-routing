@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { Routing } from '../../../app-routing.enum';
+import { NavigationService } from '../../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +9,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  @Output() public backToHomeEvent = new EventEmitter();
+  constructor (
+    private navigationService: NavigationService
+  ) { }
 
   public backToHome (): void {
-    this.backToHomeEvent.emit();
+    this.navigationService.navigate([Routing.HOME]);
   }
 }

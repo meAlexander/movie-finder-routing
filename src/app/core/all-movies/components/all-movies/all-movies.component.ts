@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map, switchMap } from 'rxjs/operators';
+
+import { Code } from '../../../../shared/models/code';
+import { Routing } from '../../../../app-routing.enum';
 import { Category } from '../../../../shared/models/category';
 import { ActivatedRoute } from '@angular/router';
-import { CODE } from '../../../../shared/models/code';
-import { NavigationService } from '../../../../services/navigation/navigation.service';
-import { Routing } from '../../../../app-routing.enum';
 import { CategoryMovieMetadata } from '../../../../shared/constants/category-movie-metadata';
 import { MovieService } from '../../../../services/movie/movie.service';
-import { map, switchMap } from 'rxjs/operators';
+import { NavigationService } from '../../../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-all-movies',
@@ -14,38 +15,32 @@ import { map, switchMap } from 'rxjs/operators';
   styleUrls: ['./all-movies.component.css']
 })
 export class AllMoviesComponent implements OnInit {
-  @Input() public page: number = 1;
   public category: Category;
-  private code: CODE;
+  public page: number;
+  private code: Code;
   private searchParam: string;
 
   constructor (
     private route: ActivatedRoute,
     private movieService: MovieService,
     private navigationService: NavigationService
-  ) {}
+  ) { }
 
   ngOnInit (): void {
-    let code: CODE;
-    let page: number;
-    let name: string;
     let categoryMetadata: CategoryMovieMetadata;
 
     this.route.queryParams.pipe(
       map((queryParams) => {
-        code = queryParams['code'];
-        page = queryParams['page'];
-        name = queryParams['name'];
-        categoryMetadata = this.movieService.categoryConfig[code];
-        if (name) {
-          categoryMetadata.searchParam = name;
-          this.searchParam = name;
-        }
+        this.searchParam = queryParams['name'];
+        this.code = queryParams['code'];
+        this.page = queryParams['page'];
+
+        categoryMetadata = this.movieService.categoryConfig[this.code];
+        categoryMetadata.searchParam = this.searchParam;
       }),
-      switchMap(() => this.movieService.getMoviesBaseQuery(categoryMetadata, page))
+      switchMap(() => this.movieService.getMoviesBaseQuery(categoryMetadata, this.page))
     ).subscribe((category) => {
       this.category = category;
-      this.code = category.code;
     });
   }
 

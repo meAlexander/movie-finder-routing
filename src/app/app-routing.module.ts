@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { Routing } from './app-routing.enum';
 import { AppComponent } from './app.component';
-import { MovieDetailsResolver } from './core/movie-details/resolvers/movie-details.resolver';
-import { HomePageResolver } from './core/home/resolvers/home-page.resolver';
 import { AllMoviesComponent } from './core/all-movies/components/all-movies/all-movies.component';
-import { AllMoviesResolver } from './core/all-movies/resolvers/all-movies.resolver';
+import { HomePageResolver } from './core/home/resolvers/home-page.resolver';
+import { MovieDetailsResolver } from './core/movie-details/resolvers/movie-details.resolver';
 
 const routes: Routes = [
   {
     path: Routing.EMPTY,
-    component: AppComponent,
     children: [
       {
-        path: Routing.HOME,
+        path: Routing.HOME, pathMatch: 'full',
         resolve: { categories: HomePageResolver },
         loadChildren: () => import('./core/home/home-page.module')
           .then(module => module.HomePageModule)
@@ -26,7 +25,6 @@ const routes: Routes = [
       },
       {
         path: Routing.CATEGORY,
-        // resolve: { category: AllMoviesResolver },
         component: AllMoviesComponent
       }
     ]
