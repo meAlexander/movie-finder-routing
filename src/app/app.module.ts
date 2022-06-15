@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -17,7 +18,6 @@ import { LoadingComponent } from './core/shared/loading/loading.component';
 import { ExploreComponent } from './core/explore/explore.component';
 import { SearchBoxComponent } from './core/search-box/search-box.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

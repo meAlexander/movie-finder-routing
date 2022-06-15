@@ -14,6 +14,6 @@ export class NavbarComponent {
   ) { }
 
   public backToHome (): void {
-    this.navigationService.navigate([Routing.HOME]);
+    this.navigationService.navigate([Routing.SIGN_UP]);
   }
 }

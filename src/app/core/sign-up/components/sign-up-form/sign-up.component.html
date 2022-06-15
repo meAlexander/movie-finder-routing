@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h1>Registration Form</h1>
+      <form [formGroup]="signUpFormGroup">
+
+        <app-first-name-form-field></app-first-name-form-field>
+        <app-last-name-form-field></app-last-name-form-field>
+        <app-phone-form-field></app-phone-form-field>
+        <app-country-form-field></app-country-form-field>
+        <app-email-form-field></app-email-form-field>
+        <app-password-form-field></app-password-form-field>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+        </div>
+
+        <p class="text-center">Have an account? <a href="">Log In</a> </p>
+      </form>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>

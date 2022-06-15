@@ -1,0 +1,21 @@
+<ng-container [formGroup]="form">
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+    <span class="input-group-text">
+      <i class="fa fa-phone"></i>
+    </span>
+    </div>
+    <select class="custom-select">
+      <option value="+971">+359</option>
+      <option value="+359">+1</option>
+      <option value="+972">+44</option>
+    </select>
+    <input
+      class="form-control"
+      type="text"
+      name="phone"
+      formControlName="phone"
+      placeholder="Phone number"
+    />
+  </div>
+</ng-container>
