@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Routing } from '../../app-routing.enum';
+import { Routing } from '../app-routing.enum';
 import { HomePageComponent } from './components/home-component/home-page.component';
 
 const routes: Routes = [

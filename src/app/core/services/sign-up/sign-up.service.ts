@@ -5,16 +5,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 export class SignUpService {
-  private signUpFormGroup: FormGroup;
+  private _signUpFormGroup: FormGroup;
 
   constructor (private formBuilder: FormBuilder) { }
 
   get signUpForm (): FormGroup {
-    return this.signUpFormGroup;
+    return this._signUpFormGroup;
   }
 
   public initForm (): FormGroup {
-    this.signUpFormGroup = this.formBuilder.group({
+    this._signUpFormGroup = this.formBuilder.group({
       firstName: this.formBuilder.control(
         '',
         {

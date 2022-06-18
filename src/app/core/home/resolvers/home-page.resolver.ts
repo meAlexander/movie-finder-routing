@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { forkJoin, Observable, of } from 'rxjs';
-import { MovieService } from '../../../services/movie/movie.service';
-import { Category } from '../../../shared/models/category';
+import { MovieService } from '../../services/movie/movie.service';
+import { Category } from '../../shared/models/category';
 
 @Injectable({
   providedIn: 'root'

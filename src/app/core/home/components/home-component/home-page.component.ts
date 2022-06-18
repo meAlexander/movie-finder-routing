@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Category } from '../../../../shared/models/category';
+import { Category } from '../../../shared/models/category';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../../../../services/movie/movie.service';
+import { MovieService } from '../../../services/movie/movie.service';
 
 @Component({
   selector: 'app-home-page',

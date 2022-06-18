@@ -14,6 +14,7 @@ export class CountryFormFieldComponent extends BaseSignUpFormFieldComponent impl
   }
 
   ngOnInit (): void {
+    super.ngOnInit();
   }
 
   ngOnDestroy (): void {

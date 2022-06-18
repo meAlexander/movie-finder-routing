@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { map, switchMap } from 'rxjs/operators';
 
-import { Code } from '../../../../shared/models/code';
-import { Routing } from '../../../../app-routing.enum';
-import { Category } from '../../../../shared/models/category';
+import { Code } from '../../../shared/models/code';
+import { Routing } from '../../../app-routing.enum';
+import { Category } from '../../../shared/models/category';
 import { ActivatedRoute } from '@angular/router';
-import { CategoryMovieMetadata } from '../../../../shared/constants/category-movie-metadata';
-import { MovieService } from '../../../../services/movie/movie.service';
-import { NavigationService } from '../../../../services/navigation/navigation.service';
+import { CategoryMovieMetadata } from '../../../shared/constants/category-movie-metadata';
+import { MovieService } from '../../../services/movie/movie.service';
+import { NavigationService } from '../../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-all-movies',

@@ -14,6 +14,7 @@ export class PasswordFormFieldComponent extends BaseSignUpFormFieldComponent imp
   }
 
   ngOnInit (): void {
+    super.ngOnInit();
   }
 
   ngOnDestroy (): void {

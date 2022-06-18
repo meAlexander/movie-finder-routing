@@ -1,13 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormGroupDirective } from '@angular/forms';
-import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
-import { takeUntil } from 'rxjs/operators';
+
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
 
 @Component({
   selector: 'app-first-name-form-field',
   templateUrl: './first-name-form-field.component.html',
-  styleUrls: ['./first-name-form-field.component.css']
+  styleUrls: ['./first-name-form-field.component.scss']
 })
 export class FirstNameFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
   private leavePage$ = new Subject();
@@ -40,8 +42,6 @@ export class FirstNameFormFieldComponent extends BaseSignUpFormFieldComponent im
         } else {
           this.errorMessage = 'Field is invalid';
         }
-
-
       });
   }
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Movie } from '../../../../shared/models/movie';
+import { Movie } from '../../../shared/models/movie';
 import { ActivatedRoute } from '@angular/router';
-import { NavigationService } from '../../../../services/navigation/navigation.service';
-import { Routing } from '../../../../app-routing.enum';
+import { NavigationService } from '../../../services/navigation/navigation.service';
+import { Routing } from '../../../app-routing.enum';
 
 @Component({
   selector: 'app-movie-details',

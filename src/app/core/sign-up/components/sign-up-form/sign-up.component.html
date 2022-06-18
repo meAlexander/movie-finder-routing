@@ -3,7 +3,7 @@
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
       <h1>Registration Form</h1>
-      <form [formGroup]="signUpFormGroup" (ngSubmit)="submitForm()">
+      <form [formGroup]="this.signUpFormGroup" (ngSubmit)="submitForm()">
 
         <app-first-name-form-field></app-first-name-form-field>
         <app-last-name-form-field></app-last-name-form-field>

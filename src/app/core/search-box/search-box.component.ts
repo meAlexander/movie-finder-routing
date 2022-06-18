@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Code } from '../../shared/models/code';
-import { Routing } from '../../app-routing.enum';
-import { NavigationService } from '../../services/navigation/navigation.service';
+import { Code } from '../shared/models/code';
+import { Routing } from '../app-routing.enum';
+import { NavigationService } from '../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-search-box',

@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { Routing } from '../../app-routing.enum';
-import { Category } from '../../shared/models/category';
-import { NavigationService } from '../../services/navigation/navigation.service';
+import { Routing } from '../app-routing.enum';
+import { Category } from '../shared/models/category';
+import { NavigationService } from '../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-category',

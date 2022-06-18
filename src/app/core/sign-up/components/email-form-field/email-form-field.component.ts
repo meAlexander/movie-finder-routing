@@ -14,6 +14,7 @@ export class EmailFormFieldComponent extends BaseSignUpFormFieldComponent implem
   }
 
   ngOnInit (): void {
+    super.ngOnInit();
   }
 
   ngOnDestroy (): void {

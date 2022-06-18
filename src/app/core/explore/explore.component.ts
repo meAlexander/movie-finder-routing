@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Routing } from '../../app-routing.enum';
-import { CategoryMovieMetadata } from '../../shared/constants/category-movie-metadata';
-import { MovieService } from '../../services/movie/movie.service';
-import { NavigationService } from '../../services/navigation/navigation.service';
+import { Routing } from '../app-routing.enum';
+import { CategoryMovieMetadata } from '../shared/constants/category-movie-metadata';
+import { MovieService } from '../services/movie/movie.service';
+import { NavigationService } from '../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-explore',

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Movie } from '../../shared/models/movie';
-import { Routing } from '../../app-routing.enum';
-import { NavigationService } from '../../services/navigation/navigation.service';
+import { Movie } from '../shared/models/movie';
+import { Routing } from '../app-routing.enum';
+import { NavigationService } from '../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-movie-card',

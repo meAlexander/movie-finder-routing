@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Movie } from '../../../shared/models/movie';
+import { Movie } from '../../shared/models/movie';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { MovieService } from '../../../services/movie/movie.service';
+import { MovieService } from '../../services/movie/movie.service';
 
 @Injectable({
   providedIn: 'root'
