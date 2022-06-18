@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { SignUpService } from '../../../../services/sign-up/sign-up.service';
 
 @Component({
@@ -15,5 +15,9 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit (): void {
     this.signUpFormGroup = this.signUpService.initForm();
+  }
+
+  public submitForm (): void {
+
   }
 }
