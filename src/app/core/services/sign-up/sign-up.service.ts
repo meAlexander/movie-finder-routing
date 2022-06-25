@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { nameValidator, numberValidator } from '../../shared/utils/validators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,42 +19,36 @@ export class SignUpService {
       firstName: this.formBuilder.control(
         '',
         {
-          validators: [Validators.required],
-          updateOn: 'blur'
+          validators: [nameValidator]
         }),
       lastName: this.formBuilder.control(
         '',
         {
-          validators: [Validators.required],
-          updateOn: 'blur'
+          validators: [nameValidator]
         }
       ),
       phone: this.formBuilder.control(
         '',
         {
-          validators: [Validators.required],
-          updateOn: 'blur'
+          validators: [numberValidator],
         }
       ),
       country: this.formBuilder.control(
         '',
         {
           validators: [Validators.required],
-          updateOn: 'blur'
         }
       ),
       email: this.formBuilder.control(
         '',
         {
           validators: [Validators.required],
-          updateOn: 'blur'
         }
       ),
       password: this.formBuilder.control(
         '',
         {
           validators: [Validators.required],
-          updateOn: 'blur'
         }
       )
     });

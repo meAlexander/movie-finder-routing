@@ -11,4 +11,7 @@
       placeholder="First name"
     />
   </div>
+  <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors">
+    {{errorMessage}}
+  </div>
 </ng-container>

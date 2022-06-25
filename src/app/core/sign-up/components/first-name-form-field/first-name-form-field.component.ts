@@ -13,7 +13,7 @@ import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-si
 })
 export class FirstNameFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
   private leavePage$ = new Subject();
-  public errorMessage: string;
+  errorMessage: string = 'Field is required';
 
   constructor (rootFormGroup: FormGroupDirective) {
     super(rootFormGroup);
@@ -37,9 +37,9 @@ export class FirstNameFormFieldComponent extends BaseSignUpFormFieldComponent im
     this.firstName.statusChanges
       .pipe(takeUntil(this.leavePage$))
       .subscribe(() => {
-        if (this.firstName.errors) {
+        if (this.firstName.errors?.required) {
           this.errorMessage = 'Field is required';
-        } else {
+        } else if (this.firstName.errors?.name) {
           this.errorMessage = 'Field is invalid';
         }
       });
