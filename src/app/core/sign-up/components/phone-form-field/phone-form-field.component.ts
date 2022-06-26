@@ -10,7 +10,7 @@ import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-err
 @Component({
   selector: 'app-phone-form-field',
   templateUrl: './phone-form-field.component.html',
-  styleUrls: ['./phone-form-field.component.scss']
+  styleUrls: ['../base-sign-up-form-field/base-sign-up-form-field.component.scss', './phone-form-field.component.scss']
 })
 export class PhoneFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
   private leavePage$ = new Subject();

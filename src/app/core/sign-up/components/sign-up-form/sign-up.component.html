@@ -13,7 +13,11 @@
         <app-password-form-field></app-password-form-field>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            [disabled]="signUpFormGroup.invalid || isButtonDisabled"
+          > Create Account </button>
         </div>
 
         <p class="text-center">Have an account? <a href="">Log In</a> </p>

@@ -1,14 +1,15 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroupDirective } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormGroupDirective } from '@angular/forms';
 
 import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
 
 @Component({
   selector: 'app-country-form-field',
   templateUrl: './country-form-field.component.html',
-  styleUrls: ['./country-form-field.component.scss']
+  styleUrls: ['../base-sign-up-form-field/base-sign-up-form-field.component.scss', './country-form-field.component.scss']
 })
-export class CountryFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
+export class CountryFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit {
+  countries: string[] = ['Bulgaria', 'USA', 'Germany'];
 
   constructor (rootFromGroup: FormGroupDirective) {
     super(rootFromGroup);
@@ -16,9 +17,14 @@ export class CountryFormFieldComponent extends BaseSignUpFormFieldComponent impl
 
   ngOnInit (): void {
     super.ngOnInit();
+    this.country.setValue('Bulgaria');
   }
 
-  ngOnDestroy (): void {
+  get country (): AbstractControl {
+    return this.form.get('country');
   }
 
+  public onChange (event: Event, country: HTMLSelectElement): void {
+    this.country.setValue(country.value);
+  }
 }

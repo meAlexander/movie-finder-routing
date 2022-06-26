@@ -10,7 +10,7 @@ import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-err
 @Component({
   selector: 'app-last-name-form-field',
   templateUrl: './last-name-form-field.component.html',
-  styleUrls: ['./last-name-form-field.component.scss']
+  styleUrls: ['../base-sign-up-form-field/base-sign-up-form-field.component.scss', './last-name-form-field.component.scss']
 })
 export class LastNameFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
   private leavePage$ = new Subject();

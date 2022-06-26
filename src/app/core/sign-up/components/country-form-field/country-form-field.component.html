@@ -1,12 +1,12 @@
 <ng-container [formGroup]="form">
   <div class="form-group input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+      <span class="input-group-text">
+        <i class="fa fa-building"></i>
+      </span>
     </div>
-    <select class="form-control">
-      <option value="Designer">Bulgaria</option>
-      <option value="Manager">USA</option>
-      <option value="Accounting">Germany</option>
+    <select class="form-control" formControlName="country" name="country" #country (selectionchange)="onChange($event, country)">
+      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
     </select>
   </div>
 </ng-container>

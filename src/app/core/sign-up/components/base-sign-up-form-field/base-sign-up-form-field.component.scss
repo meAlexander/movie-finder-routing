@@ -1,1 +1,28 @@
+.input-group-text {
+  padding: 1.5rem 0.75rem;
+}
 
+.input-group-text-valid {
+  background: darkseagreen;
+}
+
+.input-group-text-invalid {
+  background: #8d2726;
+}
+
+.form-control {
+  font-weight: 500;
+  line-height: 2.5;
+  font-size: small;
+}
+
+.alert {
+  position: relative;
+  padding: 0;
+  margin-bottom: 1rem;
+  border: 0;
+}
+
+.alert-danger {
+  color: #842029;
+}

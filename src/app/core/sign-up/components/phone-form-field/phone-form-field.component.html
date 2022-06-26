@@ -1,7 +1,7 @@
 <ng-container [formGroup]="form">
   <div class="form-group input-group">
     <div class="input-group-prepend">
-    <span class="input-group-text">
+    <span class="input-group-text" [ngClass]="{ 'input-group-text-valid': phone.valid }">
       <i class="fa fa-phone"></i>
     </span>
     </div>

@@ -1,7 +1,9 @@
 <ng-container [formGroup]="form">
   <div class="form-group input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+      <span class="input-group-text" [ngClass]="{ 'input-group-text-valid': lastName.valid }">
+        <i class="fa fa-user"></i>
+      </span>
     </div>
     <input
       class="form-control"

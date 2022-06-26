@@ -10,7 +10,7 @@ import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-err
 @Component({
   selector: 'app-password-form-field',
   templateUrl: './password-form-field.component.html',
-  styleUrls: ['./password-form-field.component.scss']
+  styleUrls: ['../base-sign-up-form-field/base-sign-up-form-field.component.scss', './password-form-field.component.scss']
 })
 export class PasswordFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
   private leavePage$ = new Subject();
