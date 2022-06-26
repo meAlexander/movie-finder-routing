@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
 import { AbstractControl, FormGroupDirective } from '@angular/forms';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
+import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-errors.constant';
 
 @Component({
   selector: 'app-last-name-form-field',
@@ -36,9 +39,9 @@ export class LastNameFormFieldComponent extends BaseSignUpFormFieldComponent imp
       .pipe(takeUntil(this.leavePage$))
       .subscribe(() => {
         if (this.lastName.errors?.required) {
-          this.errorMessage = 'Field is required';
-        } else if (this.lastName.errors?.name) {
-          this.errorMessage = 'Field is invalid';
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.name.required;
+        } else if (this.lastName.errors?.latinLettersOnly) {
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.name.invalid;
         }
       });
   }

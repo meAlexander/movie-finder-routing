@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { nameValidator, numberValidator } from '../../shared/utils/validators';
+
+import {
+  emailValidator,
+  nameValidator,
+  numberValidator,
+  passwordValidator,
+  repeatPasswordValidator
+} from '../../shared/utils/validators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,40 +25,33 @@ export class SignUpService {
     this._signUpFormGroup = this.formBuilder.group({
       firstName: this.formBuilder.control(
         '',
-        {
-          validators: [nameValidator]
-        }),
+        { validators: [nameValidator] }
+      ),
       lastName: this.formBuilder.control(
         '',
-        {
-          validators: [nameValidator]
-        }
+        { validators: [nameValidator] }
       ),
       phone: this.formBuilder.control(
         '',
-        {
-          validators: [numberValidator],
-        }
+        { validators: [numberValidator] }
       ),
       country: this.formBuilder.control(
         '',
-        {
-          validators: [Validators.required],
-        }
+        { validators: [Validators.required] }
       ),
       email: this.formBuilder.control(
         '',
-        {
-          validators: [Validators.required],
-        }
+        { validators: [emailValidator] }
       ),
       password: this.formBuilder.control(
         '',
-        {
-          validators: [Validators.required],
-        }
-      )
+        { validators: [Validators.maxLength(50)] }
+      ),
+      repeatPassword: this.formBuilder.control('')
     });
+    this._signUpFormGroup.get('email').addValidators(emailValidator(this._signUpFormGroup.get('password')));
+    this._signUpFormGroup.get('password').addValidators(passwordValidator(this._signUpFormGroup.get('email')));
+    this._signUpFormGroup.get('repeatPassword').addValidators(repeatPasswordValidator(this._signUpFormGroup.get('password')));
 
     return this.signUpForm;
   }

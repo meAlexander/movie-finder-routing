@@ -11,4 +11,7 @@
       placeholder="Email"
     />
   </div>
+  <div class="alert alert-danger" *ngIf="email.touched && email.errors">
+    {{errorMessage}}
+  </div>
 </ng-container>

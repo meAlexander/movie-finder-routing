@@ -1,13 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
 import { AbstractControl, FormGroupDirective } from '@angular/forms';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
+import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-errors.constant';
 
 @Component({
   selector: 'app-phone-form-field',
   templateUrl: './phone-form-field.component.html',
-  styleUrls: ['./phone-form-field.component.css']
+  styleUrls: ['./phone-form-field.component.scss']
 })
 export class PhoneFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
   private leavePage$ = new Subject();
@@ -36,9 +39,9 @@ export class PhoneFormFieldComponent extends BaseSignUpFormFieldComponent implem
       .pipe(takeUntil(this.leavePage$))
       .subscribe(() => {
         if (this.phone.errors?.required) {
-          this.errorMessage = 'Field is required';
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.phone.required;
         } else if (this.phone.errors?.numbersOnly) {
-          this.errorMessage = 'Invalid phone';
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.phone.invalid;
         }
       });
   }

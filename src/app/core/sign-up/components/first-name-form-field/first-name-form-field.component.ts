@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
+import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-errors.constant';
 
 @Component({
   selector: 'app-first-name-form-field',
@@ -38,9 +39,9 @@ export class FirstNameFormFieldComponent extends BaseSignUpFormFieldComponent im
       .pipe(takeUntil(this.leavePage$))
       .subscribe(() => {
         if (this.firstName.errors?.required) {
-          this.errorMessage = 'Field is required';
-        } else if (this.firstName.errors?.name) {
-          this.errorMessage = 'Field is invalid';
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.name.required;
+        } else if (this.firstName.errors?.latinLettersOnly) {
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.name.invalid;
         }
       });
   }

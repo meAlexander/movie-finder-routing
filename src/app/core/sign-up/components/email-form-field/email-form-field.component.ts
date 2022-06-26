@@ -1,13 +1,20 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AbstractControl, FormGroupDirective } from '@angular/forms';
+
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 import { BaseSignUpFormFieldComponent } from '../base-sign-up-form-field/base-sign-up-form-field.component';
-import { FormGroupDirective } from '@angular/forms';
+import { INLINE_ERRORS_TRANSLATIONS } from '../../../shared/constants/inline-errors.constant';
 
 @Component({
   selector: 'app-email-form-field',
   templateUrl: './email-form-field.component.html',
-  styleUrls: ['./email-form-field.component.css']
+  styleUrls: ['./email-form-field.component.scss']
 })
 export class EmailFormFieldComponent extends BaseSignUpFormFieldComponent implements OnInit, OnDestroy {
+  private leavePage$ = new Subject();
+  errorMessage: string = 'Field is required';
 
   constructor (rootFormGroup: FormGroupDirective) {
     super(rootFormGroup);
@@ -15,9 +22,29 @@ export class EmailFormFieldComponent extends BaseSignUpFormFieldComponent implem
 
   ngOnInit (): void {
     super.ngOnInit();
+    this.listenForChanges();
   }
 
   ngOnDestroy (): void {
+    this.leavePage$.next();
+    this.leavePage$.complete();
   }
 
+  get email (): AbstractControl {
+    return this.form.get('email');
+  }
+
+  private listenForChanges (): void {
+    this.email.statusChanges
+      .pipe(takeUntil(this.leavePage$))
+      .subscribe(() => {
+        if (this.email.errors?.required) {
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.email.required;
+        } else if (this.email.errors?.invalidEmail) {
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.email.invalid;
+        } else if (this.email.errors?.emailSameAsPassword) {
+          this.errorMessage = INLINE_ERRORS_TRANSLATIONS.email.sameAsPassword;
+        }
+      });
+  }
 }
