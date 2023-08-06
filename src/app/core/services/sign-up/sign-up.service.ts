@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import {
   emailValidator,
@@ -15,7 +17,12 @@ import {
 export class SignUpService {
   private _signUpFormGroup: FormGroup;
 
-  constructor (private formBuilder: FormBuilder) { }
+  private readonly AWS_URL: string = 'https://tpofm6qv98.execute-api.eu-north-1.amazonaws.com/movie_finder_prod/sign-up';
+
+  constructor (
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient
+  ) { }
 
   get signUpForm (): FormGroup {
     return this._signUpFormGroup;
@@ -54,5 +61,9 @@ export class SignUpService {
     this._signUpFormGroup.get('repeatPassword').addValidators(repeatPasswordValidator(this._signUpFormGroup.get('password')));
 
     return this.signUpForm;
+  }
+
+  public signUp (): Observable<any> {
+    return this.httpClient.post(this.AWS_URL, this.signUpForm.getRawValue());
   }
 }

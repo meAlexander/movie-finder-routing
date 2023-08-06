@@ -9,20 +9,6 @@ const PASSWORD_REGEX: RegExp =
 const LATIN_ALPHANUMERIC_REGEX_WITHOUT_SYMBOLS_AND_DIGITS: RegExp =
   /(?=^.[\x20-\xFF]+$)[^\x21-\x40\x5B-\x60\x7B-\x89\x91-\x99\xA0-\xBF\xD7\xF7\x8B\x9B]*$/;
 
-
-// export const PASSWORD_ONE_LETTER: RegExp = /[A-Za-z]/;
-// export const PASSWORD_ANY_OTHER_CHAR_REGEX: RegExp = /[\d'"!#%&()*+,./\\:;<=>?@[\]^_`{|}~-]/;
-// export const PASSWORD_EIGHT_CHARS: RegExp = /^.{8,}$/;
-// export const PASSWORD_MAX_LENGTH: RegExp = /^.{50,}$/;
-//
-// export const PASSWORD_VALIDATIONS = {
-//   OneLetter: new RegExp(PASSWORD_ONE_LETTER),
-//   oneSymbolOrNumber: new RegExp(PASSWORD_ANY_OTHER_CHAR_REGEX),
-//   eightCharacters: new RegExp(PASSWORD_EIGHT_CHARS),
-//   maxLength: new RegExp(PASSWORD_MAX_LENGTH)
-// };
-
-
 export function nameValidator (control: AbstractControl) {
   const name: string = control.value;
   if (!name) {

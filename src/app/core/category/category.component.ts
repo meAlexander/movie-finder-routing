@@ -7,7 +7,7 @@ import { NavigationService } from '../services/navigation/navigation.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent {
   @Input() public category: Category;
@@ -17,6 +17,6 @@ export class CategoryComponent {
   ) { }
 
   public showCategoryMoviesPage (): void {
-    this.navigationService.navigate([Routing.CATEGORY], { code: this.category.code, page: 1 });
+    this.navigationService.navigate([Routing.MOVIES], { code: this.category.code });
   }
 }

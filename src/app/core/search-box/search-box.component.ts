@@ -8,7 +8,7 @@ import { NavigationService } from '../services/navigation/navigation.service';
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
-  styleUrls: ['./search-box.component.css']
+  styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent {
   constructor (
@@ -17,6 +17,6 @@ export class SearchBoxComponent {
 
   public searchMovie (searchForm: NgForm): void {
     const movieSearch: string = searchForm.value.movie;
-    this.navigationService.navigate([Routing.CATEGORY], { code: Code.SEARCHED_MOVIES, name: movieSearch, page: 1 });
+    this.navigationService.navigate([Routing.MOVIES], { code: Code.SEARCHED_MOVIES, name: movieSearch });
   }
 }

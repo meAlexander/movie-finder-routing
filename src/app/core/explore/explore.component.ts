@@ -8,7 +8,7 @@ import { NavigationService } from '../services/navigation/navigation.service';
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.css']
+  styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
   public categoryMovieMetadata: CategoryMovieMetadata[];
@@ -23,6 +23,6 @@ export class ExploreComponent implements OnInit {
   }
 
   public showCategory (categoryMetadata: CategoryMovieMetadata): void {
-    this.navigationService.navigate([Routing.CATEGORY], { code: categoryMetadata.code, page: 1 });
+    this.navigationService.navigate([Routing.MOVIES], { code: categoryMetadata.code });
   }
 }

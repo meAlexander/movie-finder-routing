@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { Routing } from './app-routing.enum';
-import { AllMoviesComponent } from './all-movies/components/all-movies/all-movies.component';
+import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { HomePageResolver } from './home/resolvers/home-page.resolver';
 import { MovieDetailsResolver } from './movie-details/resolvers/movie-details.resolver';
 
@@ -28,7 +28,7 @@ const routes: Routes = [
           then(module => module.SignUpModule)
       },
       {
-        path: Routing.CATEGORY,
+        path: Routing.MOVIES,
         component: AllMoviesComponent
       }
     ]

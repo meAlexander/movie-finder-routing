@@ -57,7 +57,7 @@ export class MovieService {
 
     if (categoryMetadata.name === this.categoryConfig.SEARCHED_MOVIES.name) {
       const movieSearch: string = this.categoryConfig.SEARCHED_MOVIES.searchParam;
-      url = '/search/movie' + this.API_KEY_ALT + `&query=${movieSearch}&page=${page}`;
+      url = '/search/movie' + this.API_KEY_ALT + `&query=${movieSearch}`;
     } else {
       url = categoryMetadata.categoryUrl + page + this.API_KEY;
     }
